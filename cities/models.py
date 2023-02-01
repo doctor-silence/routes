@@ -11,3 +11,4 @@ class City(models.Model):
         verbose_name = 'Город'
         verbose_name_plural = 'Города'
         ordering = ['name']
+
