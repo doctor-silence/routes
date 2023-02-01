@@ -5,7 +5,8 @@
 <div class="row">
     <div class="col-md">
         {% for object in objects_list %}
-            <p>{{object.name}}</p>
+            <p>
+                <a href="{% url 'cities:detail' pk=object.pk%}">{{object.name}}</a></p> <!Переход по ссылкам-->
         {% endfor %}
     </div>
 </div>
