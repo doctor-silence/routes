@@ -1,3 +1,4 @@
+{% url 'cities:home' as cities_home_url%}
 <!doctype html>
 <html lang="en">
   <head>
@@ -28,13 +29,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="{% url 'home'%}">FindRoute</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li class="{% if request.path == cities_home_url %} active {% endif %}"><a href="{% url 'cities:home'%}">Города</a></li>  <!Динамическая подсветка активной страници-->
         <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
