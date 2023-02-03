@@ -1,19 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}Список городов{% endblock %}
+{% block title %}Создание города{% endblock %}
 {% block content %}
-    <h1>Список городов</h1>
-<div class="row">
-    <div class="col-md">
-        {% for object in objects_list %}
-            <p>
-                <a href="{% url 'cities:detail' pk=object.pk%}">{{object.name}}</a></p> <!Переход по ссылкам-->
-        {% endfor %}
-    </div>
-</div>
+    <h1>Создание города</h1>
 <div class="row">
     <div class="col-md-4"><form action="" method="post"> {% csrf_token %}
         {{ form.as_p }}  <! Добавляем форму из файла forms -->
-  <input type="submit" value="Submit">
+        <button type="submit" class="btn btn-primary">Сохранить</button>
 </form></div>
 </div>
 {% endblock %}
