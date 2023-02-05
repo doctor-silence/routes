@@ -45,6 +45,5 @@ class CityUpdateView(UpdateView):   #Изменение
 
 class CityDeleteView(DeleteView):
     model = City
-    form_class = CityForm
     template_name = 'cities/delete.html'
     success_url = reverse_lazy('cities:home')
