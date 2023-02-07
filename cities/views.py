@@ -56,3 +56,10 @@ class CityListView(ListView):
     paginate_by = 2
     model = City
     template_name = 'cities/home.html'
+
+    def get_context_data(self, **kwargs):   #Переопределяем для отображении формы
+        context = super().get_context_data(**kwargs)
+        form = CityForm()
+        context['form'] = form
+        return context
+
