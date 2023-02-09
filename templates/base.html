@@ -1,4 +1,5 @@
 {% url 'cities:home' as cities_home_url%}
+{% url 'trains:home' as trains_home_url%}
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,7 +37,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="{% if request.path == cities_home_url %} active {% endif %}"><a href="{% url 'cities:home'%}">Города</a></li>  <!Динамическая подсветка активной страници-->
-        <li><a href="#">Link</a></li>
+        <li class="{% if request.path == trains_home_url %} active {% endif %}"><a href="{% url 'trains:home'%}">Поезда</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
