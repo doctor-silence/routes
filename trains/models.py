@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 from cities.models import City
@@ -16,3 +17,15 @@ class Train(models.Model):   #Создаем модель "поезд"
         verbose_name = 'Поезд'
         verbose_name_plural = 'Поезда'
         ordering = ['travel_time']
+
+    #Делаем проверку данных при редактировании и добавлении
+    def clean(self):
+        if self.from_city == self.to_city:   #Проверка на зацыкливание
+            raise ValidationError('Изменить город прибытия')
+        qs = Train.objects.filter(from_city=self.from_city, to_city=self.to_city, travel_time=self.travel_time).exclude(pk=self.pk)  #Проверяем по id записи
+        if qs.exists():
+            raise ValidationError('Изменить время в пути')
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
