@@ -16,8 +16,7 @@
         {% for object in page_obj %}
             <tr>
                 <td>
-                    {# <a href="{% url 'trains:detail' pk=object.pk%}">{{object.name}}</a> #}<!Переход по ссылкам-->
-                    {{object.name}}
+                    <a href="{% url 'trains:detail' pk=object.pk%}">{{object.name}}</a> <!Переход по ссылкам-->
                 </td>
                 <td>{{object.from_city}}</td>
                 <td>{{object.to_city}}</td>
@@ -55,4 +54,10 @@
     </li>
   </ul>
 </nav>
+    <td>
+        <a href="{% url 'add/' pk=object.pk%}">
+        <button type="button" class="btn btn-primary">Добавить поезд</button>
+        </a>
+    </td>
 {% endblock %}
+
