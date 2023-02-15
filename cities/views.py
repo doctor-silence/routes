@@ -27,7 +27,7 @@ def home(request, pk=None):
         #return render(request, 'cities/detail.html', context)
     form = CityForm()
     qs = City.objects.all()
-    lst = Paginator(qs, 2)
+    lst = Paginator(qs, 5)
     page_number = request.GET.get('page')
     page_obj = lst.get_page(page_number)
     context = {'page_obj': page_obj, 'form': form}
@@ -61,7 +61,7 @@ class CityDeleteView(DeleteView):
         return self.post(request, *args, **kwargs)
 
 class CityListView(ListView):
-    paginate_by = 2
+    paginate_by = 5
     model = City
     template_name = 'cities/home.html'
 
