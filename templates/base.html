@@ -40,7 +40,7 @@
       <ul class="nav navbar-nav">
         <li class="{% if request.path == cities_home_url %} active {% endif %}"><a href="{% url 'cities:home'%}">Города</a></li>  <!Динамическая подсветка активной страници-->
         <li class="{% if request.path == trains_home_url %} active {% endif %}"><a href="{% url 'trains:home'%}">Поезда</a></li>
-
+          <li class="{% if request.path == list_home_url %} active {% endif %}"><a href="{% url 'list'%}">Маршруты</a></li>
         <li class="dropdown
         {% if request.path == cities_create_url or request.path == trains_create_url %} active {% endif %}">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Добавить <span class="caret"></span></a>
