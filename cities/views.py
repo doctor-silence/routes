@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
@@ -37,21 +38,21 @@ class CityDetailView(DetailView):
     queryset = City.objects.all()
     template_name = 'cities/detail.html'
 
-class CityCreateView(SuccessMessageMixin, CreateView):   #Добавление города
+class CityCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):   #Добавление города
     model = City
     form_class = CityForm
     template_name = 'cities/create.html'
     success_url = reverse_lazy('cities:home') # После создания переадресация
     success_message = "Город успешно создан"
 
-class CityUpdateView(SuccessMessageMixin, UpdateView):   #Изменение/ Добавляем миксин для сообщений
+class CityUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):   #Изменение/ Добавляем миксин для сообщений
     model = City
     form_class = CityForm
     template_name = 'cities/update.html'
     success_url = reverse_lazy('cities:home')
     success_message = "Город успешно отредактирован"
 
-class CityDeleteView(DeleteView):
+class CityDeleteView(LoginRequiredMixin, DeleteView):
     model = City
     template_name = 'cities/delete.html'
     success_url = reverse_lazy('cities:home')
