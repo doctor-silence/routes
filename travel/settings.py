@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cities',
     'trains',
-    'routes'
+    'routes',
+    'accounts',
 ]
 
 MIDDLEWARE = [
