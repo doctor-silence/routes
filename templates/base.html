@@ -55,6 +55,7 @@
           <li class="nav-link"><a href="{% url 'accounts:logout'%}">Выход</a></li>
           {% else %}
           <li class="nav-link"><a href="{% url 'accounts:login'%}">Войти</a></li>
+           <li class="nav-link"><a href="{% url 'accounts:register'%}">Регистрация</a></li>
           {% endif %}
       </ul>
       <ul class="nav navbar-nav navbar-right">
