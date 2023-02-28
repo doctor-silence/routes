@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Форма  регистрации{% endblock %}
+{% block content %}
+    <h1>Форма регистрации</h1>
+
+{% include 'form.html' with button='Зарегистрироваться' %}
+{% endblock %}
